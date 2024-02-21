@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        
+        .data{
+            border: 4px solid red;
+            width: 200px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div id="data" class="data"></div>
+    </main>
+    
+    <script>
+        const DivData = document.querySelector("#data")
+        const data = new Date() 
+        DivData.innerHTML = `Data de Hoje é ${data}`
+
+
+        console.log(data.getDate())//Dia do mês
+        console.log(data.getDay())//dia da semana(número)
+        console.log(data.getFullYear())// o Ano com 4 digito
+        console.log(data.getHours()) //horas
+        console.log(data.getMilliseconds())//milisegundos
+        console.log(data.getMinutes())//Minutos
+        console.log(data.getMonth())//Mês
+        console.log(data.getSeconds())//segundos
+        console.log(data.getTime())//timestamp (milisegundos des de 1 de janeiro de 1970, 00:00:00 UTC)
+        console.log(data.getTimezoneOffset())//timezone da localidade
+
+    </script>
+</body>
+</html>
