@@ -3,41 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>treinamendo_data</title>
     <style>
-    
-        
-        .data{
-            border: 4px solid red;
-            width: 200px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            padding: 5px;
-        }
+
+             main{
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+             }
+              .data{
+                border: 4px solid red;
+                width: 200px;
+                height: 60px;
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                font-size: 2em;
+                margin: 150px;
+                 }
+                 .relogio{
+                border: 4px solid rgb(231, 125, 125);
+                width: 200px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                font-size: 2em;
+                margin: 17px;
+                background-color: rgb(202, 188, 188);
+                margin-left: 10%;
+                
+                
+                 }
+                 .relogio1{
+                    display: flex;
+                    align-items: center;
+                border: 20px solid rgb(92, 89, 89);
+                width: 250px;
+                height: 250px;
+                border-radius: 50%;
+                background-color: rgb(163, 5, 5);
+                box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.719);
+                font-size: 1.7em;
+                
+                 }
+                
+                 
+         
     </style>
 </head>
 <body>
-    <main>
+    
+        <main>
         <div id="data" class="data"></div>
-    </main>
+            <div class="relogio1">
+              <div id="relogio" class="relogio"></div>
+            </div>
+        </main>
+
     
     <script>
-        const DivData = document.querySelector("#data")
-        const data = new Date() 
-        DivData.innerHTML = `Data de Hoje é ${data}`
+    const Datacaixa = document.querySelector("#data")
+    const horaRoda = document.querySelector("#relogio")
+   
+     novaData = new Date()
+    const data_m = novaData.getMonth()<10?"0"+novaData.getMonth():novaData.getMonth()
+    const data = novaData.getDate()+"/"+data_m+"/"+novaData.getFullYear()
+    
+    const relogio = () =>{
+       
+      const horasZero = novaData.getHours()<10?"0"+novaData.getHo():novaData.getHours()
+        const minutosZero = novaData.getMinutes()<10?"0"+novaData.getMinutes():novaData.getMinutes()
+    const segundos = novaData.getSeconds()<10?"0"+novaData.getSeconds():novaData.getSeconds()
 
+    const horas = horasZero+":"+minutosZero+":"+segundos
+    Datacaixa.innerHTML = data
+    horaRoda.innerHTML = horas   
+    }
+    const intervalo = setInterval(relogio,1000)
 
-        console.log(data.getDate())//Dia do mês
-        console.log(data.getDay())//dia da semana(número)
-        console.log(data.getFullYear())// o Ano com 4 digito
-        console.log(data.getHours()) //horas
-        console.log(data.getMilliseconds())//milisegundos
-        console.log(data.getMinutes())//Minutos
-        console.log(data.getMonth())//Mês
-        console.log(data.getSeconds())//segundos
-        console.log(data.getTime())//timestamp (milisegundos des de 1 de janeiro de 1970, 00:00:00 UTC)
-        console.log(data.getTimezoneOffset())//timezone da localidade
+   
+    
+  
+    
+ 
 
     </script>
 </body>
